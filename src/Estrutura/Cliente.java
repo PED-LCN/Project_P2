@@ -1,24 +1,21 @@
 package Estrutura;
 
-import java.time.LocalDate;
-
 public class Cliente {
     private String nome;
-    private String cpf;
-    LocalDate dataNascimento;
+    private String telefone;
+    private String endereco;
 
-    public Cliente (String nome, String cpf, LocalDate dataNascimento) {
+    Cliente(String nome, String telefone, String endereco ){
         this.nome = nome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
+        this.endereco = endereco;
     }
+
+    public void atualizarEndereco(String novoEndereco){
+        this.endereco = novoEndereco;
+    }
+
     public String getNome() {
         return nome;
-    }
-    public String getCpf() {
-        return cpf;
-    }
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
     }
 }
