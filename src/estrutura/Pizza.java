@@ -1,4 +1,4 @@
-package Estrutura;
+package estrutura;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class Pizza {
     private double preco;
     private ArrayList<String> ingredientesAdicionais;
 
-    Pizza(String sabor, String tamanho, double preco) {
+    public Pizza(String sabor, String tamanho, double preco) {
         this.sabor = sabor;
         this.tamanho = tamanho;
         this.preco = preco;
@@ -17,5 +17,11 @@ public class Pizza {
     public double getPreco() {
         return preco;
     }
+    public String getSabor() {
+        return sabor;
+    }
 
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
 }

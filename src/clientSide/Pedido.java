@@ -1,4 +1,4 @@
-package Estrutura;
+package clientSide;
 
 public class Pedido{
 }
