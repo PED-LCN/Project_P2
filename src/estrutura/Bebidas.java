@@ -8,7 +8,7 @@ public class Bebidas {
     public Bebidas(String nome, double preco, int tamanho) {
         this.Nome = nome;
         this.preco = preco;
-        this.tamanhoml = tamanho;
+        this.tamanhoMl = tamanho;
     }
 
     public String getNome() {
