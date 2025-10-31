@@ -3,13 +3,19 @@ package estrutura;
 import java.util.ArrayList;
 
 public class Cardapio {
-    private static final ArrayList<Pizza> pizzasDisponiveis = new ArrayList<Pizza>();
+    private static final ArrayList <Pizza> pizzasDisponiveis = new ArrayList<>();
+    private static final ArrayList <Bebidas> bebidasDisponiveis= new ArrayList<>();
 
     //adicionar as pizzas que vamos utilizar
+    //static{
+//        pizzasDisponiveis.add();
+//        pizzasDisponiveis.add();
+//        pizzasDisponiveis.add();
+//        }
 //    static{
-//        pizzasDisponiveis.add();
-//        pizzasDisponiveis.add();
-//        pizzasDisponiveis.add();
+//        bebidasDisponiveis.add();
+//        bebidasDisponiveis.add();
+//        bebidasDisponiveis.add();
 //    }
 
     public static ArrayList<Pizza> getPizzasDisponiveis() {
