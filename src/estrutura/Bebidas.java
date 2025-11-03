@@ -1,24 +1,20 @@
 package estrutura;
 
-enum Sabor {
-    COCA_COLA,
-    GUARANA,
-    AGUA,
-    SUCO,
-    OUTRO 
-}
+import java.util.ArrayList;
 
 public class Bebidas {
     private String Nome;
     private String sabor;
     private double preco;
     private int tamanhoMl;
+    private ArrayList<Adicional> adicionais;
 
-    public Bebidas(String nome, double preco, int tamanho) {
+    public Bebidas(String nome, double precoBase, int tamanho) {
         this.Nome = nome;
         this.sabor = sabor;
         this.preco = preco;
         this.tamanhoMl = tamanho;
+        this.adicionais = new ArrayList<>();
     }
 
     private double getMultiplicadorTamanho() {
@@ -44,7 +40,9 @@ public class Bebidas {
     public String getNome() {
         return Nome;
     }
-
+    public ArrayList<Adicional> getAdicionais() {
+        return adicionais;
+    }
     public String getTamanho() {
         if (this.tamanhoMl >= 1000) {
             double tamanhoLitros = (double) this.tamanhoMl / 1000.0;
