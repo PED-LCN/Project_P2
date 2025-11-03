@@ -1,22 +1,48 @@
 package estrutura;
 
+enum Sabor {
+    COCA_COLA,
+    GUARANA,
+    AGUA,
+    SUCO,
+    OUTRO 
+}
+
 public class Bebidas {
     private String Nome;
+    private String sabor;
     private double preco;
     private int tamanhoMl;
 
     public Bebidas(String nome, double preco, int tamanho) {
         this.Nome = nome;
+        this.sabor = sabor;
         this.preco = preco;
         this.tamanhoMl = tamanho;
     }
 
-    public String getNome() {
-        return Nome;
+    private double getMultiplicadorTamanho() {
+        if (this.tamanhoMl<= 250){
+            return 1.0;
+        } else if( this.tamanhoMl<= 500){
+            return 1.5;
+        } else if (this.tamanhoMl <= 1000){
+            return 2.5;
+        }else{
+            return 3.5;
+        }
+    }
+    
+    public double getPreco() {
+        return this.preco * getMultiplicadorTamanho();
     }
 
-    public double getPreco() {
-        return preco;
+    public String getSabor() {
+        return sabor;
+    }
+
+    public String getNome() {
+        return Nome;
     }
 
     public String getTamanho() {
