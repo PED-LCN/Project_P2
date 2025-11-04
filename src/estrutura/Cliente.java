@@ -18,4 +18,10 @@ public class Cliente {
     public String getNome() {
         return nome;
     }
+    public String getTelefone() {
+         return telefone;
+    }
+    public String getEndereco() {
+         return endereco;
+    }
 }
