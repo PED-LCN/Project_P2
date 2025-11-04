@@ -1,8 +1,8 @@
 package estrutura;
 
 public class Adicional {
-    private String nome;
-    private double preco;
+    private final String nome;
+    private final double preco;
 
     public Adicional(String nome, double preco) {
         if (preco <= 0){
@@ -20,6 +20,8 @@ public class Adicional {
     }
 
     public String toString() {
-        return nome + ("R$ " + String.format("%.2f", preco) + ")");
+        return String.format("%-25s +R$%.2f", this.nome, this.preco);
     }
+
+
 }
