@@ -117,9 +117,4 @@ public class Cardapio {
         }
         System.out.println("----------------------------------------------");
     }
-
-    public static void main(String[] args) {
-        exibirPizzasDisponiveis();
-        exibirBebidasDisponiveis();
-    }
 }
