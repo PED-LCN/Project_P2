@@ -7,14 +7,11 @@ public class Pizza {
     private String tamanho;
     private double preco;
     private ArrayList<Adicional> ingredientesAdicionais;
-    public Pizza(String sabor, String tamanho, double precoBase) {
-        if (precoBase <= 0) {
-            this.preco = 0;
-        }else {
-            this.preco = precoBase;
-        }
+
+    public Pizza(String sabor, String tamanho) {
         this.sabor = sabor;
         this.tamanho = tamanho;
+        this.preco = precoBaseTamanho(tamanho);
         this.ingredientesAdicionais = new ArrayList<>();
     }
 
@@ -23,12 +20,19 @@ public class Pizza {
         this.preco += item.getPreco();
         System.out.println("Adicional: " + item.getNome() + "Adicionado à Pizza!");
     }
+
     public double getPreco() {
         return preco;
     }
+
     public String getSabor() {
         return sabor;
     }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
     public ArrayList<Adicional> getIngredientesAdicionais() {
         return ingredientesAdicionais;
     }
@@ -39,49 +43,45 @@ public class Pizza {
             this.preco += item.getPreco();
         }
     }
+
     private double precoBaseTamanho(String tamanho){
-        double precoBase = 20.0;
-        switch (tamanho.toLowerCase()) {
+        double precoBase = definirPrecoBase(sabor);
+        switch (tamanho.toLowerCase().strip()) {
             case "pequena":
-                precoBase *= 1; 
+                precoBase *= 1.0;
                 break;
-            case "média":
+            case "media":
                 precoBase *= 1.5; 
                 break;
             case "grande":
                 precoBase *= 2; 
                 break;
-
             default:
                 precoBase*=1;
                 break;
         }
         return precoBase;
-}
+    }
+
     private double definirPrecoBase(String sabor) {
-        double precoBase = precoBaseTamanho(tamanho); 
-        switch (sabor.toLowerCase()) {
-            case "calabresa":
-                precoBase *= 1.1; 
+        double precoBase;
+        switch (sabor.toLowerCase().strip()) {
+            case "calabresa", "frango com catupiry":
+                precoBase = 31.0;
                 break;
-            case "mussarela":
-                precoBase *= 1.1; 
-                break;
-            case "frango com catupiry":
-                precoBase *= 1.3; 
-                break;
-            case "portuguesa":
-                precoBase *= 1.25;
+            case "mussarela", "portuguesa":
+                precoBase = 29.0;
                 break;
             default:
-                precoBase*=1;
+                precoBase = 25.0;
                 break;
-    }
+        }
         return precoBase;
-}
     }
-    
 
+    public String toString() {
+        return String.format("%-25s (Tam: %s) R$%.2f", this.sabor, this.tamanho, this.preco);
+    }
 
-
+}
 
