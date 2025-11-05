@@ -25,12 +25,13 @@ Entretanto ao deccorrer do projeto foi verificado que para uma melhor completude
 .
 └── 📂 Src/
     ├──📂 clientSide
-        └── ☕ Pedido.java
+        └── ☕ PizzariaApp.java
     └──📂Estrutura
         ├── ☕ Adicional.java
         ├── ☕ Bebidas.java
         ├── ☕ Cardapio.java
         ├── ☕ Cliente.java
+        ├── ☕ Pedido.java
         └── ☕ Pizza.java
 ```
 Até o momento adotamos o `Pedido.java` como sendo o `Main`. Pontanto essa será o ambiente de contado com o usuário.  
@@ -64,6 +65,61 @@ O sistema é construído sobre cinco classes principais que interagem para simul
 * **Propósito:** Representa o cliente que está fazendo o pedido.
 * **Atributos:** Contém informações básicas como nome, telefone e endereço.
 * **Funcionalidade:** Permite atualizar o endereço.
+
+## 6. Classe: `Pedido` (Central de Transações)
+
+A classe `Pedido` é o sistema de gerenciamento, responsável por registrar, calcular e finalizar a transação de compra. Ela agrega os itens do cardápio (`Pizza` e `Bebidas`) com as informações do `Cliente`.
+
+### 📌 Atributos Principais
+
+| Atributo (Privado) | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `cliente` | `Cliente` | O objeto `Cliente` que realizou o pedido. |
+| `pizzasPedidas` | `List<Pizza>` | Lista de todas as pizzas (já customizadas com adicionais) incluídas no pedido. |
+| `bebidasPedidas` | `List<Bebidas>` | Lista de bebidas (incluindo volume e preço) adicionadas ao pedido. |
+| `dataHoraDoPedido` | `LocalDateTime` | Registro exato de data e hora em que o pedido foi criado. |
+| `valorTotal` | `double` | Valor total acumulado do pedido, calculado dinamicamente ao adicionar itens. |
+
+### 🔨 Métodos Chave
+
+| Método | Descrição |
+| :--- | :--- |
+| `Pedido(Cliente cliente)` | Construtor. Inicia um novo pedido, associando-o a um cliente e marcando a hora de criação. |
+| `adicionarPizza(Pizza pizza)` | Adiciona um objeto `Pizza` à lista de pizzas e soma o preço da pizza ao `valorTotal`. |
+| `adicionarBebida(Bebidas bebida)` | Adiciona um objeto `Bebidas` à lista de bebidas e soma o preço da bebida ao `valorTotal`. |
+| `getValorTotal()` | Retorna o valor total atual do pedido. |
+| `gerarNotaFiscal()` | Formata e retorna uma `String` completa (Nota Fiscal) com todos os dados do cliente, a lista detalhada de itens (incluindo adicionais nas pizzas) e o valor final. |
+
+## 7.  `PizzariaApp`
+
+**Localização:** Pacote `clientSide`
+
+**Propósito:** Esta é a classe de inicialização do sistema e a interface de console. Ela contém o método `main()` e realiza interação entre o usuário e as classes do modelo contruido em : (`estrutura.*`), gerenciando o fluxo de pedidos, exibição do cardápio e histórico.
+
+### 📌 Atributos e Estruturas Globais
+
+| Atributo (Privado/Estático) | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `clientesCadastrados` | `List<Cliente>` | Lista que simula um banco de dados, mantendo o registro de todos os clientes. |
+| `todosOsPedidos` | `List<Pedido>` | Histórico de pedidos finalizados, permitindo a busca por transações antigas. |
+| `scanner` | `Scanner` | Gerencia a entrada de dados do usuário via console. |
+
+### 🔨 Métodos de Interação e Fluxo
+
+| Método | Descrição |
+| :--- | :--- |
+| `main(String[] args)` | Inicia o programa, exibe a mensagem de boas-vindas e mantém o *loop* do `Menu Principal` ativo até o usuário escolher `[0] Sair`. |
+| `exibirMenuPrincipal()` | Imprime as opções de interação (`Cardápio`, `Novo Pedido`, `Histórico`, `Sair`). |
+| `lerOpcao()` | Lê a entrada numérica do usuário e inclui um bloco `try-catch` para lidar com entradas inválidas (não-numéricas), evitando que o programa quebre. |
+| `verCardapioCompleto()` | Faz a chamada aos métodos estáticos de exibição da classe `Cardapio`, mostrando todas as opções ao usuário. |
+| `buscarOuCadastrarCliente()` | Solicita o telefone do cliente. Se o `Cliente` já estiver na lista, o recupera. Caso contrário, solicita `Nome` e `Endereço` para criar e armazenar um novo `Cliente`. |
+| `fazerPedido()` | **Método Central:** Implementa a lógica de criação e montagem do `Pedido`. Lida com o fluxo de seleção de Pizzas, Adicionais (em um loop aninhado) e Bebidas, utilizando os índices numéricos exibidos pelo `Cardapio`. Ao final, adiciona o pedido ao `todosOsPedidos` e imprime a nota fiscal. |
+| `verHistoricoPedidos()` | Permite ao usuário buscar pedidos anteriores pelo telefone, iterando sobre a lista `todosOsPedidos` e exibindo as notas fiscais correspondentes. |  
+
+## 💹 Melhorias futuras.
+* **Deixar o método main "enxuto"** (transferir boa parte dos métodos para uma classe auxiliar e fazer com que a classe `Pizzaria.app` apenas chame métodos mas não os defina).  
+* **Deixar a construção do `Cliente` mais robusta.** (Definindo uma quantidade fixa de algarismos por número).
+* **Interface Gráfica.**
 
 👥 Equipe de Desenvolvimento
 * EDILMO KAIKY SANTOS TERTO 
