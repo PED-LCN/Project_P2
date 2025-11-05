@@ -14,20 +14,25 @@ public class Bebidas {
 
     private double definirPrecoBase(String nome) {
         double precoBase;
-        String nomeLower = nome.toLowerCase().strip();
-
-        if (nomeLower.contains("coca")) {
-            precoBase = 8.50;
-        } else if (nomeLower.contains("fanta") || nomeLower.contains("sprite") || nomeLower.contains("guaraná") || nomeLower.contains("lata")) {
-            precoBase = 6.50;
-        } else if (nomeLower.contains("água")) {
-            precoBase = 2.5;
-        } else if (nomeLower.contains("suco")) {
-            precoBase = 4.5;
-        } else if (nomeLower.contains("vinho")) {
-            precoBase = 25.0;
-        } else {
-            precoBase = 10.0;
+        switch (nome.toLowerCase().strip()) {
+            case "coca" :
+                precoBase = 8.50;
+                break;
+            case "fanta", "sprite", "guarana", "lata" :
+                precoBase = 6.50;
+                break;
+            case "água" :
+                precoBase = 2.5;
+                break;
+            case "suco" :
+                precoBase = 4.5;
+                break;
+            case "vinho" :
+                precoBase = 25.0;
+                break;
+            default :
+                precoBase = 10.0;
+                break;
         }
         return precoBase;
     }
@@ -39,16 +44,16 @@ public class Bebidas {
                 precoBase *= 1.0;
                 break;
             case 500:
-                precoBase *= 1.25;
+                precoBase *= 1.20;
                 break;
             case 1000:
-                precoBase *= 1.35;
+                precoBase *= 1.30;
                 break;
             case 1500:
-                precoBase *= 1.50;
+                precoBase *= 1.45;
                 break;
             case 2000:
-                precoBase *= 1.65;
+                precoBase *= 1.50;
                 break;
             default:
                 precoBase*=1;
@@ -65,10 +70,6 @@ public class Bebidas {
         return Nome;
     }
 
-    public int getTamanhoMl() {
-        return tamanhoMl;
-    }
-
     public String getTamanho() {
         if (this.tamanhoMl >= 1000) {
             double tamanhoLitros = (double) this.tamanhoMl / 1000.0;
@@ -77,7 +78,9 @@ public class Bebidas {
             return this.tamanhoMl + " ml";
         }
     }
+
+    @Override
     public String toString() {
-        return String.format("%-25s (%s) R$%.2f", this.Nome, getTamanho(), this.preco);
+        return String.format("%-24s %-8s  R$%.2f", this.Nome, getTamanho(), this.preco);
     }
 }

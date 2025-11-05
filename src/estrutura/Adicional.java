@@ -19,8 +19,9 @@ public class Adicional {
         return preco;
     }
 
+    @Override
     public String toString() {
-        return String.format("%-25s +R$%.2f", this.nome, this.preco);
+        return String.format("%-24s +R$%.2f", this.nome, this.preco);
     }
 
 

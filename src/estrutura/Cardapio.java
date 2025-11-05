@@ -23,8 +23,10 @@ public class Cardapio {
         bebidasDisponiveis.add(new Bebidas("Coca-Cola", 2000));
         bebidasDisponiveis.add(new Bebidas("Coca-Cola", 1000));
         bebidasDisponiveis.add(new Bebidas("Guaraná", 1500));
+        bebidasDisponiveis.add(new Bebidas("Guaraná", 1000));
         bebidasDisponiveis.add(new Bebidas("Fanta", 1000));
         bebidasDisponiveis.add(new Bebidas("Sprite", 2000));
+        bebidasDisponiveis.add(new Bebidas("Sprite", 1000));
         bebidasDisponiveis.add(new Bebidas("Água", 500));
         bebidasDisponiveis.add(new Bebidas("Lata", 250));
 
@@ -46,39 +48,14 @@ public class Cardapio {
         return adicionaisDisponiveis;
     }
 
-    public static Pizza buscarPizzaPorNome(String nome) {
-        for (Pizza pizza : pizzasDisponiveis) {
-            if (pizza.getSabor().equalsIgnoreCase(nome)) {
-                return pizza;
-            }
-        }
-        return null;
-    }
-    public static Bebidas buscarBebidaPorNome(String nome) {
-        for (Bebidas bebida : bebidasDisponiveis) {
-            if (bebida.getNome().equalsIgnoreCase(nome)) {
-                return bebida;
-            }
-        }
-        return null;
-    }
-    public static Adicional buscarAdicionalPorNome(String nome) {
-        for (Adicional adicional : adicionaisDisponiveis) {
-            if (adicional.getNome().equalsIgnoreCase(nome)) {
-                return adicional;
-            }
-        }
-        return null;
-    }
-
     public static void exibirPizzasDisponiveis() {
         System.out.println("\n==============================================");
         System.out.println("                CARDÁPIO DE PIZZAS              ");
         System.out.println("==============================================");
-        System.out.println("    Sabor                      Tamanho    Preço");
+        System.out.println("Sabor                      Tamanho    Preço");
         System.out.println("----------------------------------------------");
         for (int i = 0; i < pizzasDisponiveis.size(); i++) {
-            System.out.printf("%d. %s\n", (i+1), pizzasDisponiveis.get(i).toString());
+            System.out.printf("[%d] %s\n", (i+1), pizzasDisponiveis.get(i).toString());
         }
         System.out.println("----------------------------------------------");
     }
@@ -87,10 +64,10 @@ public class Cardapio {
         System.out.println("\n==============================================");
         System.out.println("              CARDÁPIO DE BEBIDAS ");
         System.out.println("==============================================");
-        System.out.println("    Bebida                     Tamanho    Preço");
+        System.out.println("Bebida                     Tamanho    Preço");
         System.out.println("----------------------------------------------");
         for (int i = 0; i < bebidasDisponiveis.size(); i++) {
-            System.out.printf("%d. %s\n", (i+1), bebidasDisponiveis.get(i).toString());
+            System.out.printf("[%d] %s\n", (i+1), bebidasDisponiveis.get(i).toString());
         }
         System.out.println("----------------------------------------------");
     }
@@ -99,10 +76,10 @@ public class Cardapio {
         System.out.println("\n==============================================");
         System.out.println("             ADICIONAIS EXTRAS ");
         System.out.println("==============================================");
-        System.out.println("    Adicional                  Custo");
+        System.out.println("Adicional                  Custo");
         System.out.println("----------------------------------------------");
         for (int i = 0; i < adicionaisDisponiveis.size(); i++) {
-            System.out.printf("%d. %s\n", (i+1), adicionaisDisponiveis.get(i).toString());
+            System.out.printf("[%d] %s\n", (i+1), adicionaisDisponiveis.get(i).toString());
         }
         System.out.println("----------------------------------------------");
     }
