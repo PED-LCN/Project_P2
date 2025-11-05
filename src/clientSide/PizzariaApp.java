@@ -1,4 +1,6 @@
-package estrutura;
+package clientSide;
+
+import estrutura.*;
 
 import java.util.ArrayList;
 import java.util.List;
