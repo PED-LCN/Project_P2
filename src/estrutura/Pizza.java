@@ -37,13 +37,6 @@ public class Pizza {
         return ingredientesAdicionais;
     }
 
-    public void setPrecoBase(double precoBase) {
-        this.preco = precoBase;
-        for (Adicional item : ingredientesAdicionais) {
-            this.preco += item.getPreco();
-        }
-    }
-
     private double precoBaseTamanho(String tamanho){
         double precoBase = definirPrecoBase(sabor);
         switch (tamanho.toLowerCase().strip()) {
@@ -79,8 +72,9 @@ public class Pizza {
         return precoBase;
     }
 
+    @Override
     public String toString() {
-        return String.format("%-25s (Tam: %s) R$%.2f", this.sabor, this.tamanho, this.preco);
+        return String.format("%-24s %-8s R$%.2f", this.sabor, this.tamanho, this.preco);
     }
 
 }

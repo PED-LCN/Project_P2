@@ -1,4 +1,6 @@
-package estrutura;
+package clientSide;
+
+import estrutura.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +43,10 @@ public class PizzariaApp {
 
     private static void exibirMenuPrincipal() {
         System.out.println("\n--- MENU PRINCIPAL ---");
-        System.out.println("1. Ver Cardápio");
-        System.out.println("2. Fazer Pedido");
-        System.out.println("3. Ver Meus Pedidos Antigos");
-        System.out.println("0. Sair");
+        System.out.println("[1] Ver Cardápio");
+        System.out.println("[2] Fazer Pedido");
+        System.out.println("[3] Ver Meus Pedidos Antigos");
+        System.out.println("[0] Sair");
         System.out.print("Escolha uma opção: ");
     }
 
