@@ -11,11 +11,13 @@ public class Produto {
     public String getNome() {
         return nome;
     }
+
     public double getPreco() {
         return preco;
     }
+
     @Override
     public String toString() {
-        return String.format("%-25s R$%.2f", nome, preco);
+        return String.format("%-25s R$%.2f", (Object) this.nome, (Object) this.preco);
     }
 }
