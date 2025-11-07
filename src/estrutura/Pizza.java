@@ -22,18 +22,22 @@ public class Pizza extends Produto {
     public String getSabor() {
         return this.nome;
     }
+
     public String getTamanho() {
         return tamanho;
     }
+
     public ArrayList<Adicional> getIngredientesAdicionais() {
         return ingredientesAdicionais;
     }
+
     public void setPrecoBase(double precoBase) {
         this.preco = precoBase;
         for (Adicional item : ingredientesAdicionais) {
             this.preco += item.getPreco();
         }
     }
+
     private static double precoBaseTamanho(String sabor, String tamanho){
         double precoBase = definirPrecoBase(sabor);
         switch (tamanho.toLowerCase().strip()) {
@@ -52,15 +56,14 @@ public class Pizza extends Produto {
         }
         return precoBase;
     }
+
     private static double definirPrecoBase(String sabor) {
         double precoBase;
         switch (sabor.toLowerCase().strip()) {
-            case "calabresa":
-            case "frango com catupiry":
+            case "calabresa","frango com catupiry":
                 precoBase = 31.0;
                 break;
-            case "mussarela":
-            case "portuguesa":
+            case "mussarela","portuguesa":
                 precoBase = 29.0;
                 break;
             default:
@@ -69,6 +72,7 @@ public class Pizza extends Produto {
         }
         return precoBase;
     }
+
     @Override
     public String toString() {
         return String.format("%-25s (Tam: %s) R$%.2f", (Object) this.nome, (Object) this.tamanho, (Object) this.preco);

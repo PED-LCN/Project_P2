@@ -35,31 +35,26 @@ public class Bebidas extends Produto {
     private static double precoBaseTamanho(String nome,int tamanho){
         double precoBase = definirPrecoBase(nome);
         switch (tamanho) {
-            case 300:
-            case 250:
+            case 300,250:
                 precoBase *= 1.0;
                 break;
             case 500:
-                precoBase *= 1.25;
+                precoBase *= 1.20;
                 break;
             case 1000:
-                precoBase *= 1.35;
+                precoBase *= 1.30;
                 break;
             case 1500:
-                precoBase *= 1.50;
+                precoBase *= 1.45;
                 break;
             case 2000:
-                precoBase *= 1.65;
+                precoBase *= 1.55;
                 break;
             default:
                 precoBase*=1;
                 break;
         }
         return precoBase;
-    }
-
-    public int getTamanhoMl() {
-        return tamanhoMl;
     }
 
     public String getTamanho() {

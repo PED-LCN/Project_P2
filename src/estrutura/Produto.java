@@ -1,7 +1,5 @@
 package estrutura;
 
-import java.util.Optional;
-
 public class Produto {
     protected String nome;
     protected double preco;
@@ -13,9 +11,11 @@ public class Produto {
     public String getNome() {
         return nome;
     }
+
     public double getPreco() {
         return preco;
     }
+
     @Override
     public String toString() {
         return String.format("%-25s R$%.2f", (Object) this.nome, (Object) this.preco);
