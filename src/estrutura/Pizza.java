@@ -7,13 +7,11 @@ public class Pizza extends Produto {
     private ArrayList<Adicional> ingredientesAdicionais;
 
     public Pizza(String sabor, String tamanho) {
-        double precoBase = precoBaseTamanho(sabor, tamanho);
-
-        super(sabor, precoBase);
-
+        super(sabor, precoBaseTamanho(sabor, tamanho));
         this.tamanho = tamanho;
         this.ingredientesAdicionais = new ArrayList<>();
     }
+    
     public void adicionarAdicionais(Adicional item){
         this.ingredientesAdicionais.add(item);
         this.preco += item.getPreco();

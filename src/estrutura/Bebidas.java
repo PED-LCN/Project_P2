@@ -5,10 +5,7 @@ public class Bebidas extends Produto {
     private final int tamanhoMl;
 
     public Bebidas(String nome, int tamanho) {
-        double precoBase = precoBaseTamanho(nome, tamanho);
-
-        super(nome, precoBase);
-
+        super(nome, precoBaseTamanho(nome, tamanho));
         this.tamanhoMl = tamanho;
     }
 
