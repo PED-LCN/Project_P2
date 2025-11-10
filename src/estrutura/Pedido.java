@@ -60,7 +60,7 @@ public class Pedido {
             nota.append("Nenhum item no pedido.\n");
         } else {
             for (Pizza pizza : pizzasPedidas) {
-                nota.append(String.format("- Pizza %-15s (Tam: %s) R$%.2f\n",
+                nota.append(String.format("- Pizza %-12s (Tam: %s) R$%.2f\n",
                         pizza.getSabor(), pizza.getTamanho(), pizza.getPreco()));
 
                 for (Adicional add : pizza.getIngredientesAdicionais()) {

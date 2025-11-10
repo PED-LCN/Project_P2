@@ -57,7 +57,7 @@ public class Bebidas extends Produto {
     public String getTamanho() {
         if (this.tamanhoMl >= 1000) {
             double tamanhoLitros = (double) this.tamanhoMl / 1000.0;
-            return String.format("%.1f L", (Object) tamanhoLitros);
+            return String.format("%.1f L", tamanhoLitros);
         } else {
             return this.tamanhoMl + " ml";
         }
@@ -65,6 +65,6 @@ public class Bebidas extends Produto {
 
     @Override
     public String toString() {
-        return String.format("%-25s (%s) R$%.2f", (Object) this.nome, getTamanho(), (Object) this.preco);
+        return String.format("%-24s %-8s  R$%.2f",  this.nome, getTamanho(), this.preco);
     }
 }

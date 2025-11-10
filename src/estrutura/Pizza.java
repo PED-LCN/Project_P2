@@ -73,6 +73,6 @@ public class Pizza extends Produto {
 
     @Override
     public String toString() {
-        return String.format("%-25s (Tam: %s) R$%.2f", (Object) this.nome, (Object) this.tamanho, (Object) this.preco);
+        return String.format("%-24s %-8s R$%.2f", this.nome, this.tamanho, this.preco);
     }
 }
