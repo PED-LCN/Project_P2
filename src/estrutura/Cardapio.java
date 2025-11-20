@@ -8,27 +8,85 @@ public class Cardapio {
     private static final ArrayList <Adicional> adicionaisDisponiveis = new ArrayList<>();
 
     static {
-        pizzasDisponiveis.add(new Pizza("Mussarela", "pequena"));
-        pizzasDisponiveis.add(new Pizza("Calabresa", "pequena"));
-        pizzasDisponiveis.add(new Pizza("Frango com Catupiry", "pequena"));
+// Pizzas pequenas
+Pizza mussarelaP = new Pizza("Mussarela", "pequena");
+mussarelaP.setQuantidade(3);
+pizzasDisponiveis.add(mussarelaP);
 
-        pizzasDisponiveis.add(new Pizza("Mussarela", "media"));
-        pizzasDisponiveis.add(new Pizza("Calabresa", "media"));
-        pizzasDisponiveis.add(new Pizza("Frango com Catupiry", "media"));
+Pizza calabresaP = new Pizza("Calabresa", "pequena");
+calabresaP.setQuantidade(3); 
+pizzasDisponiveis.add(calabresaP);
 
-        pizzasDisponiveis.add(new Pizza("Mussarela", "grande"));
-        pizzasDisponiveis.add(new Pizza("Calabresa", "grande"));
-        pizzasDisponiveis.add(new Pizza("Frango com Catupiry", "grande"));
+Pizza frangoP = new Pizza("Frango com Catupiry", "pequena");
+frangoP.setQuantidade(3); 
+pizzasDisponiveis.add(frangoP);
 
-        bebidasDisponiveis.add(new Bebidas("Coca-Cola", 2000));
-        bebidasDisponiveis.add(new Bebidas("Coca-Cola", 1000));
-        bebidasDisponiveis.add(new Bebidas("Guaraná", 1500));
-        bebidasDisponiveis.add(new Bebidas("Guaraná", 1000));
-        bebidasDisponiveis.add(new Bebidas("Fanta", 1000));
-        bebidasDisponiveis.add(new Bebidas("Sprite", 2000));
-        bebidasDisponiveis.add(new Bebidas("Sprite", 1000));
-        bebidasDisponiveis.add(new Bebidas("Água", 500));
-        bebidasDisponiveis.add(new Bebidas("Lata", 250));
+
+// Pizzas médias
+Pizza mussarelaM = new Pizza("Mussarela", "media");
+mussarelaM.setQuantidade(3);
+pizzasDisponiveis.add(mussarelaM);
+
+Pizza calabresaM = new Pizza("Calabresa", "media");
+calabresaM.setQuantidade(3);
+pizzasDisponiveis.add(calabresaM);
+
+Pizza frangoM = new Pizza("Frango com Catupiry", "media");
+frangoM.setQuantidade(3);
+pizzasDisponiveis.add(frangoM);
+
+
+// Pizzas grandes
+Pizza mussarelaG = new Pizza("Mussarela", "grande");
+mussarelaG.setQuantidade(3);
+pizzasDisponiveis.add(mussarelaG);
+
+Pizza calabresaG = new Pizza("Calabresa", "grande");
+calabresaG.setQuantidade(3);
+pizzasDisponiveis.add(calabresaG);
+
+Pizza frangoG = new Pizza("Frango com Catupiry", "grande");
+frangoG.setQuantidade(3);
+pizzasDisponiveis.add(frangoG);
+
+
+// Bebidas
+Bebidas coca2L = new Bebidas("Coca-Cola", 2000);
+coca2L.setQuantidade(5); 
+bebidasDisponiveis.add(coca2L);
+
+Bebidas coca1L = new Bebidas("Coca-Cola", 1000);
+coca1L.setQuantidade(5);
+bebidasDisponiveis.add(coca1L);
+
+Bebidas guarana1_5L = new Bebidas("Guaraná", 1500);
+guarana1_5L.setQuantidade(5);
+bebidasDisponiveis.add(guarana1_5L);
+
+Bebidas guarana1L = new Bebidas("Guaraná", 1000);
+guarana1L.setQuantidade(5);
+bebidasDisponiveis.add(guarana1L);
+
+Bebidas fanta1L = new Bebidas("Fanta", 1000);
+fanta1L.setQuantidade(5);
+bebidasDisponiveis.add(fanta1L);
+
+Bebidas sprite2L = new Bebidas("Sprite", 2000);
+sprite2L.setQuantidade(5);
+bebidasDisponiveis.add(sprite2L);
+
+Bebidas sprite1L = new Bebidas("Sprite", 1000);
+sprite1L.setQuantidade(5);
+bebidasDisponiveis.add(sprite1L);
+
+Bebidas agua0_500 = new Bebidas("Água", 500);
+agua0_500.setQuantidade(10);
+bebidasDisponiveis.add(agua0_500);
+
+Bebidas lata250 = new Bebidas("Lata", 250);
+lata250.setQuantidade(10);
+bebidasDisponiveis.add(lata250);
+
 
         adicionaisDisponiveis.add(new Adicional("Bacon Extra", 5.00));
         adicionaisDisponiveis.add(new Adicional("Cheddar", 7.50));
@@ -37,6 +95,7 @@ public class Cardapio {
     }
 
     public static ArrayList<Pizza> getPizzasDisponiveis() {
+        
         return pizzasDisponiveis;
     }
 

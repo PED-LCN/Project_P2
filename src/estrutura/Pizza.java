@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class Pizza extends Produto {
     private String tamanho;
     private ArrayList<Adicional> ingredientesAdicionais;
+    private int quantidade;
 
     public Pizza(String sabor, String tamanho) {
         super(sabor, precoBaseTamanho(sabor, tamanho));
         this.tamanho = tamanho;
         this.ingredientesAdicionais = new ArrayList<>();
+
     }
     
     public void adicionarAdicionais(Adicional item){
@@ -17,6 +19,18 @@ public class Pizza extends Produto {
         this.preco += item.getPreco();
         System.out.println("Adicional: " + item.getNome() + " Adicionado à Pizza!");
     }
+    public int getQuantidade(){
+        return this.quantidade;
+    }
+
+    public void setQuantidade(int quantidade){
+        this.quantidade = quantidade;
+    }
+
+    public void diminuirQuantidade(){
+        this.quantidade -=1;
+    }
+
     public String getSabor() {
         return this.nome;
     }

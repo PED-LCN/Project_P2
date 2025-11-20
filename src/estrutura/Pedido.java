@@ -23,11 +23,13 @@ public class Pedido {
     public void adicionarPizza(Pizza pizza) {
         this.pizzasPedidas.add(pizza);
         this.valorTotal += pizza.getPreco();
+        pizza.diminuirQuantidade();
     }
 
     public void adicionarBebida(Bebidas bebida) {
         this.bebidasPedidas.add(bebida);
         this.valorTotal += bebida.getPreco();
+        bebida.diminuirQuantidade();
     }
 
     public Cliente getCliente() {

@@ -3,10 +3,12 @@ package estrutura;
 public abstract class Produto {
     protected String nome;
     protected double preco;
+    protected int quantidade;
 
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
+        
     }
     public String getNome() {
         return nome;
@@ -15,6 +17,8 @@ public abstract class Produto {
     public double getPreco() {
         return preco;
     }
+
+    
 
     @Override
     public String toString() {
