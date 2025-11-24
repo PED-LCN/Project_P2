@@ -73,11 +73,19 @@ public class Bebidas extends Produto {
     }
 
     public int getQuantidade(){
-        return this.quantidade;
+        if (this.tamanhoMl >= 1000) {
+            return (this.tamanhoMl / 1000.0) + " L";
+        } else {
+            return this.tamanhoMl + " ml";
+        }
     }
 
-    public void diminuirQuantidade(){
-        this.quantidade -=1;
+    public void diminuirQuantidade() throws ProdutoForaDeEstoqueException{
+        if (this.quantidade <= 0) {
+            throw new ProdutoForaDeEstoqueException(
+                    "A bebida '" + this.nome + "' (" + this.tamanhoMl + "ml) está fora de estoque!"
+            );
+        }
     }
 
     @Override

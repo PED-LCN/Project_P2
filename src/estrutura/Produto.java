@@ -8,6 +8,7 @@ public abstract class Produto {
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
+        this.quantidade = 0;
         
     }
     public String getNome() {
@@ -18,7 +19,20 @@ public abstract class Produto {
         return preco;
     }
 
-    
+    public int getQuantidade() { return  quantidade; }
+
+    public void adicionarestoque(int quantidade) {
+        this.quantidade += quantidade;
+    }
+
+    public void diminuirEstoque() throws  ProdutoForaDeEstoqueException {
+        if (this.quantidade <= 0) {
+            throw new ProdutoForaDeEstoqueException(
+                    "O produto "+nome+" está fora de estoque."
+            );
+        }
+        this.quantidade -=1;
+    }
 
     @Override
     public String toString() {
