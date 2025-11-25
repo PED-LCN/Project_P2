@@ -19,7 +19,7 @@ public abstract class Produto {
         return preco;
     }
 
-    public int getQuantidade() { return  quantidade; }
+    public double getQuantidade() { return  quantidade; }
 
     public void adicionarestoque(int quantidade) {
         this.quantidade += quantidade;
@@ -28,7 +28,7 @@ public abstract class Produto {
     public void diminuirEstoque() throws  ProdutoForaDeEstoqueException {
         if (this.quantidade <= 0) {
             throw new ProdutoForaDeEstoqueException(
-                    "O produto "+nome+" está fora de estoque."
+                    "O produto " + nome + " está fora de estoque."
             );
         }
         this.quantidade -=1;
