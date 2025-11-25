@@ -3,6 +3,7 @@ package estrutura;
 public class Bebidas extends Produto {
 
     private final int tamanhoMl;
+    private int quantidade;
 
     public Bebidas(String nome, int tamanho) {
         super(nome, precoBaseTamanho(nome, tamanho));
@@ -54,12 +55,36 @@ public class Bebidas extends Produto {
         return precoBase;
     }
 
-    public String getTamanho() {
+    public void setQuantidade(int quantidade){
+        this.quantidade = quantidade;
+    }
+
+    public int getTamanho(){
+        return tamanhoMl;
+    }
+
+    public String getTamanhoParaCliente() {
         if (this.tamanhoMl >= 1000) {
             double tamanhoLitros = (double) this.tamanhoMl / 1000.0;
             return String.format("%.1f L", tamanhoLitros);
         } else {
             return this.tamanhoMl + " ml";
+        }
+    }
+
+    public int getQuantidade(){
+        if (this.tamanhoMl >= 1000) {
+            return (this.tamanhoMl / 1000.0) + " L";
+        } else {
+            return this.tamanhoMl + " ml";
+        }
+    }
+
+    public void diminuirQuantidade() throws ProdutoForaDeEstoqueException{
+        if (this.quantidade <= 0) {
+            throw new ProdutoForaDeEstoqueException(
+                    "A bebida '" + this.nome + "' (" + this.tamanhoMl + "ml) está fora de estoque!"
+            );
         }
     }
 

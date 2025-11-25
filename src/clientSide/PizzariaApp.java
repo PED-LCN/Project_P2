@@ -85,7 +85,7 @@ public class PizzariaApp {
             try {
                 Pizza pizzaTemplate = Cardapio.getPizzasDisponiveis().get(escolhaPizza - 1);
                 Pizza pizzaDoCliente = new Pizza(pizzaTemplate.getSabor(), pizzaTemplate.getTamanho());
-
+                
                 while (true) {
                     System.out.println("\n--- Adicionais para a Pizza: " + pizzaDoCliente.getSabor() + " ---");
                     Cardapio.exibirAdicionaisDisponiveis();
@@ -107,6 +107,7 @@ public class PizzariaApp {
                 }
 
                 novoPedido.adicionarPizza(pizzaDoCliente);
+                pizzaTemplate.diminuirQuantidade();
                 System.out.println("Pizza " + pizzaDoCliente.getSabor() + " adicionada ao pedido.");
 
             } catch (IndexOutOfBoundsException e) {
@@ -123,9 +124,11 @@ public class PizzariaApp {
             if (escolhaBebida == 0) break;
 
             try {
-                Bebidas bebidaEscolhida = Cardapio.getBebidasDisponiveis().get(escolhaBebida - 1);
-                novoPedido.adicionarBebida(bebidaEscolhida);
-                System.out.println(bebidaEscolhida.getNome() + " adicionada.");
+                Bebidas bebidaTemplate = Cardapio.getBebidasDisponiveis().get(escolhaBebida - 1);
+                Bebidas bebidaDoCliente = new Bebidas(bebidaTemplate.getNome(), bebidaTemplate.getTamanho());
+                novoPedido.adicionarBebida(bebidaDoCliente);
+                bebidaTemplate.diminuirQuantidade();
+                System.out.println(bebidaDoCliente.getNome() + " adicionada.");
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Opção de bebida inválida. Tente novamente.");
             }
