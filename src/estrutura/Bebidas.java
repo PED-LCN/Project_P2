@@ -72,11 +72,11 @@ public class Bebidas extends Produto {
         }
     }
 
-    public int getQuantidade(){
+    public double getQuantidade(){
         if (this.tamanhoMl >= 1000) {
-            return (this.tamanhoMl / 1000.0) + " L";
+            return (this.tamanhoMl / 1000.0);
         } else {
-            return this.tamanhoMl + " ml";
+            return this.tamanhoMl;
         }
     }
 

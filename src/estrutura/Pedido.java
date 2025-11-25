@@ -29,7 +29,11 @@ public class Pedido {
     public void adicionarBebida(Bebidas bebida) {
         this.bebidasPedidas.add(bebida);
         this.valorTotal += bebida.getPreco();
-        bebida.diminuirQuantidade();
+        try {
+            bebida.diminuirQuantidade();
+        } catch (ProdutoForaDeEstoqueException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Cliente getCliente() {

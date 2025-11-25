@@ -127,7 +127,11 @@ public class PizzariaApp {
                 Bebidas bebidaTemplate = Cardapio.getBebidasDisponiveis().get(escolhaBebida - 1);
                 Bebidas bebidaDoCliente = new Bebidas(bebidaTemplate.getNome(), bebidaTemplate.getTamanho());
                 novoPedido.adicionarBebida(bebidaDoCliente);
-                bebidaTemplate.diminuirQuantidade();
+                try {
+                    bebidaTemplate.diminuirQuantidade();
+                } catch (ProdutoForaDeEstoqueException e) {
+                    throw new RuntimeException(e);
+                }
                 System.out.println(bebidaDoCliente.getNome() + " adicionada.");
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Opção de bebida inválida. Tente novamente.");
@@ -164,9 +168,12 @@ public class PizzariaApp {
         }
     }
 
-    private static Cliente buscarOuCadastrarCliente() {
+    private static Cliente buscarOuCadastrarCliente() throws TelefoneInvalidoException {
         System.out.print("Digite o telefone do cliente (ex: 999998888): ");
         String telefone = scanner.nextLine();
+        if (telefone.length() != 9) {
+            throw new TelefoneInvalidoException("O telefone " + telefone + " não válido, tente novamente.");
+        }
 
         for (Cliente c : clientesCadastrados) {
             if (c.getTelefone().equals(telefone)) {

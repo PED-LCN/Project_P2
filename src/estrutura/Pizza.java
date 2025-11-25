@@ -19,7 +19,7 @@ public class Pizza extends Produto {
         this.preco += item.getPreco();
         System.out.println("Adicional: " + item.getNome() + " Adicionado à Pizza!");
     }
-    public int getQuantidade(){
+    public double getQuantidade(){
         return this.quantidade;
     }
 
