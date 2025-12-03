@@ -50,7 +50,7 @@ O sistema é construído sobre um conjunto de classes que interagem para simular
 - **Propósito:** Representa uma bebida.
 - **Lógica de Preço:** O preço é ajustado com base no volume (`tamanhoMl`).
 
-### 4. `Adicional`
+### 4. `Adicional`(Herda de `Produto`)
 - **Propósito:** Representa itens extras para uma pizza.
 - **Características:** Atributos `final` para garantir imutabilidade.
 
